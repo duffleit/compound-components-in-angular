@@ -1,14 +1,16 @@
 import { Component } from '@angular/core';
-import { SlideDefinition } from './slider/slider.component';
+import { SlideDefinition, DotNavigationOption } from './slider/slider.component';
 
 @Component({
   selector: 'app-root',
   template: `
     <div class="center">
-      <av-slider [speed]="4000" [slides]="slides" [width]="800" [height]="600"></av-slider>
+      <av-slider [dotNavigationOption]="dotNavigationOptions.Below" [speed]="4000" [slides]="slides" [width]="800" [height]="600"></av-slider>
     </div>`
 })
 export class AppComponent {
+  dotNavigationOptions = DotNavigationOption;
+
   slides: SlideDefinition[] = [
     {
       backgroundImage: "assets/images/schoenbrunn.png",
