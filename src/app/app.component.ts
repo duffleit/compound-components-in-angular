@@ -5,7 +5,7 @@ import { SlideDefinition } from './slider/slider.component';
   selector: 'app-root',
   template: `
     <div class="center">
-      <app-slider [slides]="slides" [width]="800" [height]="600"></app-slider>
+      <av-slider [slides]="slides" [width]="800" [height]="600"></av-slider>
     </div>`
 })
 export class AppComponent {

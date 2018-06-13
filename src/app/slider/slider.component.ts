@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { interval } from 'rxjs';
 
 @Component({
-  selector: 'app-slider',
+  selector: 'av-slider',
   template: `
     <div class="slider-container" [ngStyle]="{'width.px': width, 'height.px': height}">
       <div class="screen" [ngStyle]="{'margin-top.px': offset}">
