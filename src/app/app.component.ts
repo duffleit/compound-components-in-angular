@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SlideUnit } from './slider/slider.component';
+import { SlideDefinition } from './slider/slider.component';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,7 @@ import { SlideUnit } from './slider/slider.component';
     </div>`
 })
 export class AppComponent {
-  slides: SlideUnit[] = [
+  slides: SlideDefinition[] = [
     {
       backgroundImage: "assets/images/schoenbrunn.png",
       caption: "Schönbrunn Palace",

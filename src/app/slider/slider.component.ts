@@ -7,7 +7,7 @@ import { interval } from 'rxjs';
     <div class="slider-container" [ngStyle]="{'width.px': width, 'height.px': height}">
       <div class="screen" [ngStyle]="{'margin-top.px': offset}">
         <div class="slide" *ngFor="let slide of slides"
-            [ngStyle]="{'width.px': width, 'height.px': height, 'background-image': 'url(' + slide.backgroundImage + ')'}">
+            [ngStyle]="{'background-image': 'url(' + slide.backgroundImage + ')'}">
           <div class="caption">
             <div class="title">{{slide.caption}}</div>
             <div class="description">{{slide.description}}</div>
@@ -21,7 +21,7 @@ import { interval } from 'rxjs';
 export class SliderComponent implements OnInit {
 
   @Input()
-  slides: SlideUnit[];
+  slides: SlideDefinition[];
   @Input()
   width: number;
   @Input()
@@ -31,7 +31,7 @@ export class SliderComponent implements OnInit {
   private intervalSubscriber: any;
 
   ngOnInit(): void {
-    this.intervalSubscriber = interval(3000).subscribe(val => {
+    this.intervalSubscriber = interval(2000).subscribe(val => {
       const currentSlide = val % this.slides.length;
       this.offset = currentSlide * this.height * -1;
     })
@@ -42,7 +42,7 @@ export class SliderComponent implements OnInit {
   }
 }
 
-export interface SlideUnit {
+export interface SlideDefinition {
   backgroundImage: String,
   caption: String,
   description: String,

@@ -4,12 +4,14 @@
 
 .screen {
     transition: margin 1000ms;
+    height: 100%;
 }
 
 .slide {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    height: 100%;
 }
 
 .caption {
