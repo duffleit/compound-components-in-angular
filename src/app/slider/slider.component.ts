@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { interval, ReplaySubject } from 'rxjs';
+import { Component, OnInit, Input, TemplateRef } from '@angular/core';
+import { interval, Subject } from 'rxjs';
 
 @Component({
   selector: 'av-slider',
@@ -11,7 +11,7 @@ import { interval, ReplaySubject } from 'rxjs';
 export class SliderComponent {
 
   slides: SlideDefinition[] = [];
-  currentSlide: ReplaySubject<SlideDefinition> = new ReplaySubject();
+  currentSlide: Subject<SlideDefinition> = new Subject();
 
   registerSlide(slide: SlideDefinition): void {
     this.slides.push(slide);
@@ -20,7 +20,6 @@ export class SliderComponent {
 
 export interface SlideDefinition {
   backgroundImage: String,
-  caption: String,
-  description: String,
+  thumbnail: TemplateRef<any>,
 }
 

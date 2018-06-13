@@ -6,6 +6,7 @@ import { SliderComponent } from './slider/slider.component';
 import { SlideComponent } from './slide/slide.component';
 import { VerticalRotatorComponent } from './vertical-rotator/vertical-rotator.component';
 import { DotNavigationComponent } from './dot-navigation/dot-navigation.component';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { DotNavigationComponent } from './dot-navigation/dot-navigation.componen
     SlideComponent,
     VerticalRotatorComponent,
     DotNavigationComponent,
+    MenuComponent,
   ],
   imports: [
     BrowserModule

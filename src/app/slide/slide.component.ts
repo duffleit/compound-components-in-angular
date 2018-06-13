@@ -1,15 +1,14 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ContentChild, TemplateRef } from '@angular/core';
 import { SlideDefinition, SliderComponent } from '../slider/slider.component';
 
 @Component({
   selector: 'av-slide',
   template: `
     <div class="slide"
-        [ngStyle]="{'background-image': 'url(' + definition.backgroundImage + ')'}">
-      <div class="caption">
-        <div class="title">{{definition.caption}}</div>
-        <div class="description">{{definition.description}}</div>
-      </div>
+        [ngStyle]="{'background-image': 'url(' + backgroundImage + ')'}">
+        <div class="caption">
+          <ng-content></ng-content>
+        </div>
     </div>
   `,
   styleUrls: ['./slide.component.scss']
@@ -17,14 +16,17 @@ import { SlideDefinition, SliderComponent } from '../slider/slider.component';
 export class SlideComponent implements OnInit {
 
   @Input()
-  definition: SlideDefinition;
+  backgroundImage: string;
+
+  @ContentChild('thumbnail')
+  thumbnail: TemplateRef<any>;
 
   constructor(
     private slider: SliderComponent
   ) { }
 
   ngOnInit() {
-    this.slider.registerSlide(this.definition);
+    this.slider.registerSlide({ backgroundImage: this.backgroundImage, thumbnail: this.thumbnail });
   }
 
 }
