@@ -5,12 +5,10 @@ import { SlideDefinition, DotNavigationOption } from './slider/slider.component'
   selector: 'app-root',
   template: `
     <div class="center">
-      <av-slider
-        [dotNavigationOption]="dotNavigationOptions.Below"
-        [speed]="4000"
-        [width]="800"
-        [height]="600">
-        <av-slide *ngFor="let slide of slides" [definition]="slide"></av-slide>
+      <av-slider [dotNavigationOption]="dotNavigationOptions.Below">
+        <av-vertical-rotator [speed]="2000" [width]="800" [height]="600">
+          <av-slide *ngFor="let slide of slides" [definition]="slide"></av-slide>
+        </av-vertical-rotator>
       </av-slider>
     </div>`
 })
