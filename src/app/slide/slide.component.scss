@@ -1,0 +1,20 @@
+.slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+    .caption {
+        padding: 2rem;
+        background-color: rgba(0, 0, 0, .5);
+        .title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+        }
+        .description {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: white;
+        }
+    }
+}

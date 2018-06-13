@@ -9,13 +9,7 @@ import { interval } from 'rxjs';
     </div>
     <div class="slider-container" [ngStyle]="{'width.px': width, 'height.px': height}">
       <div class="screen" [ngStyle]="{'margin-top.px': offset}">
-        <div class="slide" *ngFor="let definition of slides"
-            [ngStyle]="{'background-image': 'url(' + definition.backgroundImage + ')'}">
-          <div class="caption">
-            <div class="title">{{definition.caption}}</div>
-            <div class="description">{{definition.description}}</div>
-          </div>
-        </div>
+        <ng-content></ng-content>
       </div>
     </div>
     <div *ngIf="dotNavigationOption === dotNavigationOptions.Below" class="dot-container">
@@ -26,8 +20,8 @@ import { interval } from 'rxjs';
 })
 export class SliderComponent implements OnInit {
 
-  @Input()
-  slides: SlideDefinition[];
+  slides: SlideDefinition[] = [];
+
   @Input()
   width: number;
   @Input()
@@ -59,6 +53,10 @@ export class SliderComponent implements OnInit {
 
   get dots(): number[] {
     return this.slides.map((s, i) => i);
+  }
+
+  registerSlide(slide: SlideDefinition): void {
+    this.slides.push(slide);
   }
 }
 
