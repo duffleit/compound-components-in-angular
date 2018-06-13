@@ -27,11 +27,16 @@ export class VerticalRotatorComponent implements OnInit {
 
   public offset: number;
   private intervalSubscriber: any;
+  private currentSlideSubscriber: any;
 
   ngOnInit(): void {
     this.intervalSubscriber = interval(this.speed).subscribe(val => {
-      const currentSlide = val % this.slider.slides.length;
-      this.goToSlide(currentSlide);
+      const nextSlideIndex = val % this.slider.slides.length;
+      this.slider.currentSlide.next(this.slider.slides[nextSlideIndex]);
+    })
+    this.slider.currentSlide.subscribe(s => {
+      const selectedSlideIndex = this.slider.slides.indexOf(s);
+      this.goToSlide(selectedSlideIndex)
     })
   }
 
@@ -41,6 +46,7 @@ export class VerticalRotatorComponent implements OnInit {
 
   ngOnDestroy(): void {
     this.intervalSubscriber.unsubscribe();
+    this.currentSlideSubscriber.unsubscribe();
   }
 
 }

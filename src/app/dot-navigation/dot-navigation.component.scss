@@ -1,0 +1,17 @@
+.dot-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .dot {
+        border-radius: 50%;
+        cursor: pointer;
+        margin: 1rem .5rem;
+        width: 1rem;
+        height: 1rem;
+        display: inline-block;
+        background-color: grey;
+        &:hover {
+            background-color: black;
+        }
+    }
+}

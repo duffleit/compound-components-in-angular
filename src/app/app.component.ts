@@ -1,20 +1,19 @@
 import { Component } from '@angular/core';
-import { SlideDefinition, DotNavigationOption } from './slider/slider.component';
+import { SlideDefinition } from './slider/slider.component';
 
 @Component({
   selector: 'app-root',
   template: `
     <div class="center">
-      <av-slider [dotNavigationOption]="dotNavigationOptions.Below">
+      <av-slider>
         <av-vertical-rotator [speed]="2000" [width]="800" [height]="600">
           <av-slide *ngFor="let slide of slides" [definition]="slide"></av-slide>
         </av-vertical-rotator>
+        <av-dot-navigation></av-dot-navigation>
       </av-slider>
     </div>`
 })
 export class AppComponent {
-  dotNavigationOptions = DotNavigationOption;
-
   slides: SlideDefinition[] = [
     {
       backgroundImage: "assets/images/schoenbrunn.png",
