@@ -1,8 +1,14 @@
+:host{
+  width: 800px;
+  display: inline-block;
+  height: 100%;
+}
 .slide {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     height: 100%;
+    width: 800px;
     .caption {
         padding: 2rem;
         background-color: rgba(0, 0, 0, .5);

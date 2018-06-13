@@ -6,9 +6,9 @@ import { SlideDefinition } from './slider/slider.component';
   template: `
     <div class="center">
       <av-slider>
-        <av-vertical-rotator [speed]="2000" [width]="800" [height]="600">
+        <av-horizontal-rotator [speed]="4000" [width]="800" [height]="600">
           <av-slide *ngFor="let slide of slides" [definition]="slide"></av-slide>
-        </av-vertical-rotator>
+        </av-horizontal-rotator>
         <av-dot-navigation></av-dot-navigation>
       </av-slider>
     </div>`
