@@ -6,11 +6,11 @@ import { interval } from 'rxjs';
   template: `
     <div class="slider-container" [ngStyle]="{'width.px': width, 'height.px': height}">
       <div class="screen" [ngStyle]="{'margin-top.px': offset}">
-        <div class="slide" *ngFor="let slide of slides"
-            [ngStyle]="{'background-image': 'url(' + slide.backgroundImage + ')'}">
+        <div class="slide" *ngFor="let definition of slides"
+            [ngStyle]="{'background-image': 'url(' + definition.backgroundImage + ')'}">
           <div class="caption">
-            <div class="title">{{slide.caption}}</div>
-            <div class="description">{{slide.description}}</div>
+            <div class="title">{{definition.caption}}</div>
+            <div class="description">{{definition.description}}</div>
           </div>
         </div>
       </div>
