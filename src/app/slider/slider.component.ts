@@ -26,12 +26,14 @@ export class SliderComponent implements OnInit {
   width: number;
   @Input()
   height: number;
+  @Input()
+  speed: number = 2000;
 
   public offset: number;
   private intervalSubscriber: any;
 
   ngOnInit(): void {
-    this.intervalSubscriber = interval(2000).subscribe(val => {
+    this.intervalSubscriber = interval(this.speed).subscribe(val => {
       const currentSlide = val % this.slides.length;
       this.offset = currentSlide * this.height * -1;
     })
